@@ -111,7 +111,8 @@ In this run, only the `[Producer] Waiting: buffer full` message appears. This oc
 ## Example #2
 Sample console output when running the producer(1500ms) and consumer(1000ms):
 
-<remember to add my image>
+<img width="899" height="850" alt="image" src="https://github.com/user-attachments/assets/ee828414-6534-407d-a155-81e1934e4f6c" />
+
 
 ### Explanation
 
