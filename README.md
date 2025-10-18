@@ -10,10 +10,9 @@
     - [Process Flow](#process-flow)
 - [Compilation](#compilation)
 - [Usage](#usage)
-- [Example #1](#example-1)
-    - [Explanation](#explanation)
-- [Example #2](#example-2)
-    - [Explanation](#explanation)
+- [Examples](#examples)
+    - [Example #1](#example-1)
+    - [Example #2](#example-2)
 
 ## Description
 This project demonstrates the classic Producer-Consumer problem in C++ using POSIX shared memory and semaphores for process synchronization. The producer adds items to a shared buffer, while the consumer removes them. Synchronization ensures that the producer waits when the buffer is full and the consumer waits when the buffer is empty.
@@ -58,7 +57,7 @@ The shared memory segment contains a `SharedTable` structure defined in `table.h
 4. Add item to buffer and increment count
 5. Release mutex lock (`sem_post(mutex)`)
 6. Signal that buffer has a new item (`sem_post(full)`)
-7. Sleep to simulate production time (1000ms)
+7. Sleep to simulate production time
 8. Repeat until interrupted
 
 **Consumer Process:**
@@ -68,7 +67,7 @@ The shared memory segment contains a `SharedTable` structure defined in `table.h
 4. Remove item from buffer and decrement count
 5. Release mutex lock (`sem_post(mutex)`)
 6. Signal that buffer has an empty slot (`sem_post(empty)`)
-7. Sleep to simulate consumption time (1500ms)
+7. Sleep to simulate consumption time
 8. Repeat until interrupted
 
 ## Compilation
@@ -95,7 +94,9 @@ g++ cleanup.cpp -pthread -lrt -o cleanup
 
 3. Stop processes with Ctrl+C.
 
-## Example #1
+## Examples
+
+### Example #1
 Sample console output when running the producer(1000ms) and consumer(1500ms):
 
 <img width="899" height="683" alt="image" src="https://github.com/user-attachments/assets/a8642361-3d84-49ff-a7d3-c155745c2741" />
@@ -108,7 +109,7 @@ In this run, only the `[Producer] Waiting: buffer full` message appears. This oc
 - The buffer reaches its maximum size (`BUFFER_SIZE = 2`) quickly, triggering the "buffer full" message.
 - The consumer never attempts to consume from an empty buffer during this run, so `[Consumer] Waiting: buffer empty` does not appear.
 
-## Example #2
+### Example #2
 Sample console output when running the producer(1500ms) and consumer(1000ms):
 
 <img width="899" height="850" alt="image" src="https://github.com/user-attachments/assets/ee828414-6534-407d-a155-81e1934e4f6c" />
