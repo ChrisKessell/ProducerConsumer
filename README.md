@@ -17,6 +17,13 @@
 ## Description
 This project demonstrates the classic Producer-Consumer problem in C++ using POSIX shared memory and semaphores for process synchronization. The producer adds items to a shared buffer, while the consumer removes them. Synchronization ensures that the producer waits when the buffer is full and the consumer waits when the buffer is empty.
 
+***NOTE***
+
+I spoke with Professor Jinhui Ma and he told me it was okay to centralize all my Documentation (program description & explanation of key components), Readme (List and briefly describe each file included in your repository & usage instructions) into a single ReadMe file.
+
+<img width="1039" height="152" alt="image" src="https://github.com/user-attachments/assets/e2f80453-4c54-4ace-9109-baadd27da657" />
+
+
 ## Files
 - `producer.cpp` – Implements the producer process.  
 - `consumer.cpp` – Implements the consumer process.  
